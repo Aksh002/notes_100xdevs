@@ -1,0 +1,7 @@
+1- Just like how hospital has a doctor, every HTTP server has code logic in a fxn which is run/provides services when the user reach to server(hospital) and call the fxn(doctor)
+2- Just like how to outreach the doctors skills to the public, he gotta sit in the hospital, to outreach our code logic,we gotta sit it on the HTTTP server 
+3- Just like how doctor delegates task by send the checked patient to take scans/medicine and attend him again when he gets free,js thread also performs async fxn and process all the fxn calls
+4- app.get("/",finction(){}) statement is like doctor giving perscription(fxn) according to the disease data get from the user ("/" route) he finds
+5- Doctor can have multiple fxnality like kidney surgery,brain surgery(app.get,app.post,app.use) depends on wut the user want
+6- Port is like address of the clinic, where these fxns run by the doctor
+7- A single hospital can have multiple clinics consisting multiple doctor with there own fxnality and with there own address/room no.(port) that is unique to that hospital, if u want one fxnality(sum till n) go to room 3000, if u want another fxn(sum of a and b) go to room 3001

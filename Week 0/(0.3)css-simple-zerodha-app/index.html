@@ -1,0 +1,117 @@
+<!--
+
+#                               style
+#               color,background and background color                           
+<h1 style="color:red; background-color:rgb(15, 214, 221);">
+    hello
+</h1>
+# 'background' only is used to both add images to bg and color to bg, while 'background-colour' only adds color
+
+#               border-raidus                           
+
+<h1 style="color:red;background-color: aquamarine; border-radius: 10px ;">
+    hello
+</h1>
+
+#               border
+
+<h1 style="color:red;background-color: aquamarine; border-radius: 10px ;border:2px solid black">
+    hello
+</h1>
+# Dotted
+<h1 style="color:red;background-color: aquamarine; border-radius: 10px ;border:2px dotted black">
+    hello
+</h1>
+
+#               padding
+# Space between text and inside the border, it provides breathing spce inside the div
+
+<h1 style="color:red;background-color: aquamarine; border-radius: 10px ;border:2px solid black;padding:15px">
+    hello
+</h1>
+
+#               Developor tools
+# CHrome developer tools helps to costamise the style and see real time effects on the website, to access them go to inspect option after right click on the website and open that code snippet
+# One can also add arguments there only for testing purpose
+
+#               margin
+# Space between outside the border and nside the website parameter, it provides the breathing space inside the div
+
+<h1 style="color:red;background-color: aquamarine; border-radius: 10px ;border:2px solid black;padding:15px;margin:20px;margin-top: 50px">
+    hello
+</h1>
+
+#               box-shadow
+# It expects 4 entries,first one being how much and in which directin shadow leans(+20 means right,-20 means lest,0 is center),2nd one defines how much dist the shadow falls below the box,3rd one defines,4th one difines the color 
+
+<h1 style="color:red;background-color: aquamarine; border-radius: 10px ;box-shadow: 20px 10px 10px black">
+    hello
+</h1>
+
+#               font-size         
+
+<h1 style="color:red;background-color: aquamarine; border-radius: 10px ;font-size:50px;box-shadow: 20px 10px 10px black">
+    hello
+</h1>
+
+#               Positioning
+# Floating property (Dumb way)-
+
+<div style="background-color: greenyellow; margin-left: 100px;margin-right: 100px">
+    <span>Zerodha</span>
+    <span style="float: right;">Login</span>
+</div>
+
+#               FLEX BOX
+# Parent div instruct children divs to allign in horizontal line in certain way
+
+<div style="display: flex;
+justify-content: flex-end;">
+    <div>ZERODHA</div>
+    <div>Login</div>
+</div>
+# Other justfy-content are-     flex-start
+                                center
+                                space-between
+                                space-around
+                                space-evenly
+# See notes for detail
+
+# Another way of positioning is absolute-positioning, not used majorly
+
+
+-->
+<div style="display: flex;justify-content: space-between; padding-left: 200px;padding-right: 250px;box-shadow: 2px 1px 2px #eee">
+    <img src="logo.svg" width="130px" style="padding-top: 17px;padding-bottom: 5px;height: 17px;">
+    <div style="display: flex;">
+        <div style="padding: 20px; color: #999;font-size: 17px;cursor: pointer;">Signup</div>
+        <div style="padding: 20px; color: #999;font-size: 17px;cursor: pointer;">About</div>
+        <div style="padding: 20px; color: #999;font-size: 17px;cursor: pointer;">Product</div>
+        <div style="padding: 20px; color: #999;font-size: 17px;cursor: pointer;">Pricing</div>
+        <div style="padding: 20px; color: #999;font-size: 17px;cursor: pointer;">Support</div>
+        <!-- 
+            cursor:pointer is used to change the cursor type when houvered over it 
+        -->
+    </div>
+</div>
+
+<div style="display: flex;justify-content: center;margin-top: 90px;" >
+    <img src="landing.png" width="800"/>
+</div>
+<!--
+    # Could hv used <center></center> tag too but its use is dicouraged
+-->
+<div style="display: flex;justify-content: center;margin-top: 70px;font-size: 50px;font-weight: 500;">
+    Invest in everything
+</div>
+<div style="display: flex;justify-content: center;margin-bottom: 20px;margin-top:10px;font-size: 22px;font-weight: 400;">
+    Online platform to invest in stocks, derivatives, mutual funds, and more
+</div>
+<!--
+    Making button using <button> tag gives uggly product, so we do it ther way
+-->
+<div style="display: flex;justify-content: center;">
+    <div style="background-color: rgb(71, 110, 253);color: #fff;border: 1px solid rgba(0, 0, 0, 0);border-radius: 3px;padding: 10px 30px;margin-top: 25px;cursor: pointer;font-weight: 500;font-size: 20px;">
+        Sign up now
+    </div>
+</div>

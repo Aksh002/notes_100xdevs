@@ -1,0 +1,83 @@
+<div>
+    <script>
+        let globalId=1;
+        function add_todo(){
+            let id=globalId++;
+            const task=document.getElementById("task").value
+            const disc=document.getElementById("disc").value
+            // We  cant do the same shit we did last week here,that was overwriting the div on each button click, this time we gotta append to div on each click 
+            /*
+            // We can just paste whole container div , but that doesnt solve th case of appending 
+            document.getElementById("container").innerHTML=             // $ helps in templating, its a cleaner way then concatinating string with value using + sign
+            `<div>
+                <div>${task}</div><br></br>         
+                <div>${disc}</div><br></br>
+                <button>Mark as done</button><br></br>
+            </div>`         // Dilda(`) used for multiline strings
+            */
+           /*
+           // ANother way to solve append issue
+            const originalHTML=document.getElementById("container").innerHTML
+           document.getElementById("container").innerHTML=originalHTML+             
+            `<div>
+                <div>${task}</div><br></br>         
+                <div>${disc}</div><br></br>
+                <button>Mark as done</button><br></br>
+            </div>`
+            // But this is quite an uggly way, aking stings and shoving them directly in the page
+            */
+
+            // Beteter way:-                document.createElement  ,   document.getElementById("").appendChild()
+            const childDiv=document.createElement("div")        // outerDiv consists of  new dom div element "<div></div>", which is not a part of dom or page as of now 
+            
+            //childDiv.innerHTML=task
+            //document.getElementById("container").appendChild(childDiv)      // unless u state this line, notthing is getting added to the dom
+            
+            // A child div needs to have 3 grandchild divs inside them
+            const firstGrandchild=document.createElement("div")
+            firstGrandchild.innerHTML=task
+            childDiv.appendChild(firstGrandchild)
+
+            const secoundGrandchild=document.createElement("div")
+            secoundGrandchild.innerHTML=disc
+            childDiv.appendChild(secoundGrandchild)
+
+            const thirdGrandchild=document.createElement("button")
+            thirdGrandchild.innerHTML="Mark As Done"
+            thirdGrandchild.setAttribute("onclick",`markAsDone(${id})`)     // Set attribute is used to assign atrributes to the div
+            childDiv.appendChild(thirdGrandchild)
+
+            childDiv.setAttribute("id",id)
+            document.getElementById("container").appendChild(childDiv)
+
+
+        }
+        function markAsDone(id){
+            const parent=document.getElementById(id)
+            parent.children[2].innerHTML="DONE!"                            // .children[] is used to accuss various divs inside the main div
+        }
+
+        //                                      KEYS:-
+        //                                          document.createElement
+        //                                          document.appendChild
+        //                                          document.setAttribute
+        //                                          document.children
+    </script>
+    <div>
+        <input id="task" type="text" placeholder="Task"><br></br>
+    </div>
+
+    <div>
+        <input id="disc" type="text" placeholder="Discription"><br></br>
+    </div>
+
+    <div>
+        <button onclick="add_todo()">ADD TODO</button><br></br>
+    </div>
+
+    <div id="container"></div><br></br>
+</div>
+
+<script>
+    // Now problem with this approach is
+</script>

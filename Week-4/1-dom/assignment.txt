@@ -1,0 +1,2 @@
+Create a BE which calculates total amount and intrest provided that the principal amount, rate and time period is given
+display that on the dynami frontend

@@ -1,0 +1,175 @@
+<!--
+<div>
+    <input type="text" placeholder="First Number"></input><br></br>
+    <input type="text" placeholder="Secound Number"></input><br></br>
+    <button>Calculate sum</button><br></br>
+</div>
+
+# Class   and    ids
+
+<style>
+    .container{
+        background-color: red;
+        margin : 10px;
+        padding: 10px
+    }
+</style>
+<div class="container" id="container1">
+    <input type="text" placeholder="First Number"></input><br></br>
+</div>
+
+<div class="container" id="container2">
+    <input type="text" placeholder="Secound Number"></input><br></br>
+</div>
+
+<div>
+    <button>Calculate sum</button><br></br>
+</div>
+</div>
+
+<div>
+
+    <script>
+        // script tag is used to write js in html
+        function populateDiv(){
+            const element=document.getElementById("finalSum")
+            //console.log(element)          // If we click on the button mult times(hence executing this fxn) and go to R-click > INspect > console, we can see "<div id="finalSum"></div>" being logged mult times, we may assume its a string contaning html code, but its actually a refrence to the html snippet, it shows that this html is currently on the dom of the website, we can change the content by calling a fxn to this variable
+            // This element consists of a dom object , and object lets u access multiple functions on them, on of them we use here
+            //element.innerHTML="Hello World"           //.innerHTML helps to put smthing inside a div accesed by getElementById
+
+            // we still need to capture the entered values to display sum, we can do this by accesing id of the input div just like we accesed the finalsum div
+            const a=document.getElementById("a").value;     // Note that this is a string , not int
+            const b=document.getElementById(2).value;
+            element.innerHTML=parseInt(a)+parseInt(b);
+            //parseInt(): string => Int
+
+            // There are some other ways to access the div like :-
+            //document.querySelector("#finalSum")
+            //document.querySelector(".class")        // acess all divs with class named class
+            //document.getElementsByClassName("class")    // gives u the array of all the element with the given class
+            //document.querySelectorAll("div")        // retruns an array of all the divs
+            
+        }
+    </script>
+    <div>
+        <input id="a" type="text" placeholder="First Number"></input><br></br>
+    </div>
+
+    <div>
+        <input id=2 type="text" placeholder="Secound Number"></input><br></br>
+    </div>
+
+    <div>
+        <button onclick="populateDiv()">Calculate sum</button><br></br>
+    </div>
+
+    <div id="finalSum"></div>
+</div>
+
+//                                              Connecting FE to BE                     
+
+<div>
+
+    <script>
+        
+        function populateDiv(){
+            const element=document.getElementById("finalSum")
+            const a=document.getElementById("a").value;     
+            const b=document.getElementById(2).value;
+            // to access the BE server we will use fetch() call
+            fetch("http://localhost:3000/sum?a=" + a + "&b=" + b)       //ugly way      // if we try to store returned valuein a variable(so that it can showed on web page), it will store a promise, we need to call .then to catch the returned value
+            // axios: latest api which replaces fetch api
+                .then(function(response){
+                    //console.log(res)      // This will print out a long structured text output consisting of the ans too, to access the ans :
+                    response.text()              // this is also an async call, just like res.json()
+                        .then(function(ans){
+                            //console.log(ans)        // this should log the ans
+                            document.getElementById("finalSum").innerHTML=ans
+                        })  
+                })
+        }
+        
+        // Cleaner way
+        async function populateDiv2(){
+            const element=document.getElementById("finalSum")
+            const a=document.getElementById("a").value;     
+            const b=document.getElementById(2).value;
+            const response=await fetch("http://localhost:3000/sum?a=" + a + "&b=" + b)
+            const ans=await response.text()
+            document.getElementById("finalSum").innerHTML=ans
+        }
+    </script>
+    <div>
+        <input id="a" type="text" placeholder="First Number"></input><br></br>
+    </div>
+
+    <div>
+        <input id=2 type="text" placeholder="Secound Number"></input><br></br>
+    </div>
+
+    <div>
+        <button onclick="populateDiv2()">Calculate sum</button><br></br>
+    </div>
+
+    <div id="finalSum"></div>
+</div>
+-->
+
+<script>
+    //                                              Debouncing, throttling
+    // LEts say this time we dont wanna return output after clicking a button, lets say we want to call fxn everytime a value is entered in the input box, similar to what happens when u search something on amazon, as u type letters, request goes to BE to send suggestive names, this can be done by "oninput" argument
+    // But theres one another little feature, it doesnt happen everytime, if u type fast, it will send request after whole thing is typed,they debounced all those requests in betweem, that is done by debouncing  
+</script>
+
+<div>
+
+    <script>
+        
+        let timeout;        // Global variable
+        // debouncing from raw method, without use of any librrary
+        function debouncePopulateDiv(){
+            // THis fxn needs to delay the call to populateDiv2 for 100ms ,untill it has not been called again, if is called, another 100ms delay
+            // thos fxn has been called at least onece
+            // logic goes for setTimeout
+            /*
+            setTimeout(function(){
+                populateDiv2()
+            },1000 )        // But what we are missing rn is resetting of this timer as soon as the "debouncePopulateDiv" gets called again(smthing is entered again)
+            */
+            // Basically we need to cancel the clock 
+            clearTimeout(timeout)
+            timeout=setTimeout(function(){
+                populateDiv2()
+            },5000)     //KEpt 5000 for testing reasons
+
+        }
+
+        // When you do same shit in BE its called throttling, only deference is we dont kill request , we do accept all the request one by one, but slowly
+        // Usually debouncing is prefered
+
+        async function populateDiv2(){
+            const element=document.getElementById("finalSum")
+            const a=document.getElementById("a").value;     
+            const b=document.getElementById(2).value;
+            const response=await fetch("http://localhost:3000/sum?a=" + a + "&b=" + b)
+            const ans=await response.text()
+            document.getElementById("finalSum").innerHTML=ans
+        }
+    </script>
+    <div>
+        <input oninput="debouncePopulateDiv()" id="a" type="text" placeholder="First Number"></input><br></br>
+    </div>
+
+    <div>
+        <input oninput="debouncePopulateDiv()" id=2 type="text" placeholder="Secound Number"></input><br></br>
+    </div>
+
+    <div id="finalSum"></div>
+</div>
+<!--
+<script>
+    // axios: This is an api who use fetch under the hood, its wrapping over fetch, making its use easy
+    const response=await axios.get("http://localhost:3000/sum?a=" + a + "&b=" + b)
+    response.data
+</script>
+-->

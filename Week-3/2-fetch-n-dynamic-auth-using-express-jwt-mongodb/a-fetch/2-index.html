@@ -1,0 +1,38 @@
+<div>
+    <script>
+        /*
+        function getAnimalData(){
+            alert("Function initiated")
+            
+            const response=fetch("https://fakerapi.it/api/v1/persons")  // THis generally sends GET http request to the server, to change it to post,pass "{method:"POST"}" as an argument in fetch
+            console.log(response)   
+            // Whatere we log appears in :- Right-click > inspect > console
+            // Here it says promise{<pending>}, fetch is an async call, so to fetch data, we need to fetch how we do it in promise 
+            // If we know smthing is returning a promise, its better to use promisified syntax for it
+            
+            fetch("https://fakerapi.it/api/v1/persons")                 // Whenever this promise resolves, the data actually comes back after fetch -
+                .then(function(response){                                           // - Control should reach here
+                    response.json()                                     // This lets us to grab the json data in json format, as we know data is in json    // But this ..json() fxn itself is a async fxn, if we try to store it in "json" and log json, in inspect > console, it will show promise{<pending>}, we need to await this as well, or we can use nested promise
+                        .then(function(finaldata){
+                            console.log(finaldata)                      // Now inspect > console will show entry like :-{status: 'OK', code: 200, total: 10, data: Array(10)}, containing all 10 data elements
+                        })
+                    })
+        }
+        /*
+        // By Using Async await (much cleaner)
+        async 
+        */
+       async function getAnimalData(){
+        const response = await fetch("https://fakerapi.it/api/v1/persons")
+        const finaldata = await response.json() 
+        //console.log(finaldata)
+        // Data is collected but not put on the screen , To render data, we use DOM
+        // To render the data:
+        document.getElementById("userdata").innerHTML=JSON.stringify(finaldata.data)
+       }
+       // getAnimalData()   :-  this will load data after entering the website, no need of button here
+    </script>
+    <button onclick="getAnimalData()">Get Animal Data</button>
+    <div id="userdata"></div>
+</div>
+

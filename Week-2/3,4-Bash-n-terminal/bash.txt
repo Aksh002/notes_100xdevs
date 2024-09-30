@@ -1,0 +1,57 @@
+1- pwd - 
+
+    = print working directory 
+    
+2- cd -
+    = change directory
+    = cd .. - come out of directory
+    = cd Desktop/Bin - to enter in multiple directoryat once
+
+
+3- ls -
+    = list all the directory
+
+4- mkdir -
+    = make directory
+
+5- touch - 
+    = make a file
+
+6- cat -
+    = prints content of the file
+
+7- vi -
+    = open file in vim editor(just like vs code)
+    = enter I t oenter in the Insert mode and enable typing
+    = exiting vim - (esc + (enter ':q!' + Enter)) - without saving
+    =                              :wq!
+8- mv -
+    = move file or folder from one directory to another
+
+9- cp - 
+    = copy file from one director to another
+    = to copy folder pass 'cp -r'
+
+10- Node (empty)-
+    = To print node version out and start a node shell where js codes r executable
+
+11- Node (filename)-
+    = To execute js file
+
+12- clear -
+    = clean the terminal
+
+13- npm -
+    = node package manager 
+
+AUTOMATING BASH COMMANDS
+Steps:-
+    1- cat > newscript.sh
+    2- #!/bin/bash
+        echo "Initiation"
+        mkdir automated_dir
+        cd automated_dir && touch newscript.txt
+    3- bash newscript.sh
+
+NOTE :- Check written notes for advanced bash commands
+ 

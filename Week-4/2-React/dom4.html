@@ -1,0 +1,49 @@
+<div>
+    <script>
+        let globalId=1;
+        let todoState=[];                                                   // Global state variable
+        let oldTodoState=[];
+
+        function addTodo(){
+
+        }
+
+        function removeTodo(todo){
+            const element=document.getElementById(todo.id)
+            element.parent.removeChild(element)
+        }
+
+        function updateTodo(oldTodo,newTodo){
+            const element=document.getElementById(oldTodo.id);
+            element.children[0].innerHTML=newTodo.title
+            element.children[1].innerHTML=newTodo.disc
+            element.children[0].innerHTML=newTodo.completed ? "Mark as Done" : "Done!";
+        }
+        
+        // This part is handled by React generally
+        function updateState(newTodos){
+            // Calculate the difference between oldTodo and newTodo
+            // More specifically, find out what todos are:-
+            // 1. Added
+            // 2. Updated
+            // 3. Deleted
+            const added=[]
+            const updated=[]
+            const removed=[]
+            // Calculate these 3 arrays
+            // Call addTodo,removetodo,deleteTodo on each of the elements
+        }
+
+        function addTodo(){
+            const title=document.getElementById("title").value
+            const disc=document.getElementById("discription").value
+            todoState.push({
+                title:title,
+                disc:disc,
+                id:globalId++
+            })
+            updateState(todoState)
+            // Last time we just called the new data from the server directly , but this timme we will compare the data first
+        }
+    </script>
+</div>

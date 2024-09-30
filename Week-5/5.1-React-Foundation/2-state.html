@@ -1,0 +1,38 @@
+<script>
+    // Lets create a counter app using state/components concept, but without react
+</script>
+
+<div id="buttonParent"> </div>
+
+<script>
+    let state={
+        count:0
+    }
+
+    // This part is also written by dev
+    function onButtonPress(){
+        state.count++;
+        buttonComponentRerender()                           // THis is also taken care by react
+    }
+
+    // THis is just a react library
+    function buttonComponentRerender(){
+        document.getElementById("buttonParent").innerHTML=" "
+        const component=buttonComponent(state.count)
+        document.getElementById("buttonParent").appendChild(component)
+    }
+
+    // THis part is done by dev in react
+    function buttonComponent(count){                        // Creates button
+        const button=document.createElement("button")       //  Writting button indicates we creating a button
+        button.innerHTML=`Counter ${count}`
+        button.setAttribute("onclick",`onButtonPress()`)
+        return button
+    }
+    // <button onclick="onButtonPress"> counter `${count}`</button>
+    
+    // THis is done by a react library too
+    buttonComponentRerender()                               // We triggered this mannually to display the initial render
+
+    // THis longass code shows how react works under the hood
+</script>

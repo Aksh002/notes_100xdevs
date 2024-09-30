@@ -1,0 +1,48 @@
+<div>
+    <body>
+        <input type="text" id="title" placeholder="Todo title"></input> <br /><br />
+        <input type="text" id="description" placeholder="Todo description"></input> <br /><br />
+    
+        <div id="container"></div>
+
+    </body>
+    <script>
+        // Our task here is to create a page that takes a STATE from the backend and ubdate the todos on the page acc to it
+        function createChild(title, description, id) 
+        {
+            const child = document.createElement("div");
+            const firstGrandParent = document.createElement("div");
+            firstGrandParent.innerHTML = title;
+            const secondGrandParent = document.createElement("div");
+            secondGrandParent.innerHTML = description;
+            const thirdGrandParent = document.createElement("button");
+            thirdGrandParent.innerHTML = "Mark as done";
+            thirdGrandParent.setAttribute("onclick", `markAsDone(${id})`);
+            child.appendChild(firstGrandParent);
+            child.appendChild(secondGrandParent);
+            child.appendChild(thirdGrandParent)
+            child.setAttribute("id", id);
+            return child;
+        }
+
+        // State will always be an array
+        // Every element of State would have a titkle,discription and id
+        function updateDomAccToState(state){
+            const parent=document.getElementById("container");
+            parent.innerHTML=""
+            for(let i=0;i<state.length;i++){
+                const child=createChild(state[i].title,state[i].description,state[i].id)
+                parent.appendChild(child)
+            }
+        }
+        // This whole thing above, the loding of div is simplified using reach, we just need to set the interval and connect the backend
+        window.setInterval(async function(){
+            const res=await fetch("http://localhost:3000/todos")
+            const ans=await res.json()
+            updateDomAccToState(ans.todos)
+        },5000)
+        
+        // ps run the server first incase u forgot idiot 
+    </script>
+
+</div>
