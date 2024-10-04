@@ -10,7 +10,7 @@ export function Filtering(){
         {search.map(function(todo,index){
             return (<div key={index}>                               
                 <h2>{todo.title}</h2>
-                <h3>{todo.description}</h3>
+                <h3>{todo.des}</h3>
             </div>)
         })}
     </div>

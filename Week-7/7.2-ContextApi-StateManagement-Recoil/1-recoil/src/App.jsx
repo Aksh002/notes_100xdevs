@@ -81,7 +81,7 @@ function EvenRender(){
 
 //                                                          Implementing Recoil in todo app
 import { todoAtom } from './store/atoms/todo'
-import { CreateTodo } from './components/CreteTodo'
+import { CreateTodo } from './components/CreateTodo'
 import { Filtering } from './components/Filtering'
 function App(){
   return <div>
