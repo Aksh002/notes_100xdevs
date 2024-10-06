@@ -184,3 +184,27 @@ let h=z/(1000*60*60)
 let m=(z%(1000*60*60))/(1000*60)
 let s=((z%(1000*60*60))%(1000*60))/1000
 console.log(h+":"+m+":"+s)
+
+
+
+//                                              "=>" instead of finction(){}
+// 1. Arrow Function without Curly Braces (Implicit Return):--
+//          When you don't use curly braces {}, the arrow function implicitly returns the result of the expression. This is often used for simple functions that have a single expression.
+const sum = (a, b) => a + b;
+
+//  2. Arrow Function with Curly Braces (Explicit Return)
+//          When you use curly braces {}, you need to explicitly use the return keyword if you want to return something from the function. Otherwise, the function will return undefined by default.
+const sum2 = (a, b) => {
+    return a + b;
+};
+
+//                                              "=="        Vs      "==="
+// In JavaScript, == and === are comparison operators, but they differ in how they compare values:
+
+// 1. == (Loose Equality or Abstract Equality):-
+//          Compares values after type coercion, meaning JavaScript tries to convert the values to the same type before comparing them.
+//          If the two values being compared are of different types, JavaScript will try to coerce them into the same type and then compare them.
+
+// 2. === (Strict Equality):-
+//          Compares both value and type without doing any type conversion. Both the value and the type of the two values must be the same for === to return true.
+//          If the types are different, === will immediately return false
