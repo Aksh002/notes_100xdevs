@@ -10,7 +10,7 @@
 - 4.3 assignment me do my own thing
 - week 5 assignment me do my own thing
 - week 6 assignment
-
+- 8.0 YOUTUBE CLONE using tailwind with React + nextjs 
 
 
 

@@ -109,7 +109,8 @@ function UpdateComponent(){
 // Its concept is it returns 2 parts, "state" & "contents".
 // contents store the state variable of the atom,whatever there was in default
 // State consists of the state of the atom. 3 states are possible: "loading"    "hasValue"    "hasError"
-
+// smae fxnality is provided by :- suspense(much cleaner way)
+//                                 
 
 function App() {
   
