@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 
 export function RevenueCard({title,amount,orderCount}){
-    return <div className="bg-white rounded m-10 shadow-md p-4 hover:bg-blue-200">
+    return <div className="bg-white rounded  shadow-md m-4 p-4 hover:bg-blue-200">
         <div className="flex justify-center text-gray-700 flex-col">
             <div className="flex">
                 <div>{title}</div>
@@ -15,17 +15,17 @@ export function RevenueCard({title,amount,orderCount}){
 
         <div className="flex justify-between pt-2">
             <div className="text-3xl font-semibold">₹{amount}</div>
-            {orderCount? <div className="flex text-blue-700 cursor-pointer underline font-medium text-lg flex flex-col justify-center">
+            {orderCount? <div className="text-blue-700 cursor-pointer underline font-medium text-lg flex flex-col justify-center">
                 <div className="flex">
                     {orderCount} Orders
                     <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5 mt-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="size-5 mt-1.5 text-blue-700">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                         </svg>
                     </div>
                 </div>
             </div>:null} 
         </div>
-        <Button variant="contained">Contained</Button>     
+        <Button variant="contained">Contained</Button>   
     </div>
 }
