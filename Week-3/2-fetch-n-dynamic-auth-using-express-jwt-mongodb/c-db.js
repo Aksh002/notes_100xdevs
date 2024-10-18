@@ -67,3 +67,20 @@ app.post("/signup",async function(req,res){
     })
 })
 app.listen(port)
+
+/*
+
+// THis is how u implement Regex and Or in mongoose
+const filter=req.params.filter  || ""
+
+    const user=User.find({
+        $or:[{
+            firstname:{
+                "$regex":filter
+            }
+        },{
+            lastname:{
+                "$regex":filter
+            }
+        }]
+    }) */
