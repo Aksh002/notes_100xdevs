@@ -1,1 +1,1 @@
-{"root":["./src/1_a.ts"],"version":"5.6.3"}
+{"root":["./src/1_a.ts","./ts-in-react/vite.config.ts","./ts-in-react/src/app.tsx","./ts-in-react/src/main.tsx","./ts-in-react/src/vite-env.d.ts"],"errors":true,"version":"5.6.3"}
