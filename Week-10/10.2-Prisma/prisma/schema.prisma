@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}               //"postgresql://username:password@localhost:5432/database_name"
+
+
+// Say the db of our app has two tables :-  Users and Todos
+
+// THis is how we define the schema of User Table , equivalent CREATE TABLE command
+model User{
+  id Int @id @default(autoincrement())
+  email String @unique
+  firstName String
+  lastname String?
+  passwowrd String
+}
+//  @id = Primary key
+//  @default = set default value 
+// autoincrement() = 
+// @ unique = Entered value must be unique
+// ? = Makes that entry optional
+
+
+model Todos{
+  id Int @id @default(autoincrement())
+  userId Int 
+  title String
+  description String? 
+  done Boolean @default(false)
+
+  // Lets say later on, we add this new filed in our table, if we dont put the default for the existing ones alr, that field will voilate the integrity constraint of that schema 
+  time String @default("")
+}
