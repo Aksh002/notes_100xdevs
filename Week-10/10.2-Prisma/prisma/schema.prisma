@@ -21,8 +21,8 @@ model User{
   id Int @id @default(autoincrement())
   email String @unique
   firstName String
-  lastname String?
-  passwowrd String
+  lastName String?
+  password String
 }
 //  @id = Primary key
 //  @default = set default value 
