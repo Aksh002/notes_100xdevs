@@ -27,5 +27,13 @@
 - 9.1 1:50:50
 - 9.2 1:29:00
 - 10.1 2:10:00
+- 11.1 2:10:00
 
+
+~ Serious Pending:-
+
+- ADHOC Videos of OS contribution
+- 11.2 AWS
+- 12.1 AWS frontend
+- 12.3 Deploying npm packages, Monorepos
 

@@ -2,7 +2,8 @@ import { Hono } from 'hono'
 
 const app = new Hono()
 
-app.post('/',async (c) => {                 // Both req,res are found in c
+app.post('/',async (c) => {                 // c = context (everything related to request)             
+  // Both req,res are found in c .
 
   // Body:-
   const body=await c.req.json()
@@ -16,10 +17,26 @@ app.post('/',async (c) => {                 // Both req,res are found in c
   console.log(c.req.query("param"))
 
   // Return ways:-
+
   //return c.text('Hello Hono!')
+
   return c.json({
     msg:"JSON Return"
   })
 })
+
+
+//                                                    Middlewares
+
+// Writing a simple auth middleware
+async function authMiddle(c:any,next:any){
+  if (c.req.header('Authorization')){
+    await next();                       // Call is awaited, for, just in case we have another logic to run after next()
+  }else{
+    return c.text("You do not have excess");
+  }
+}
+
+
 
 export default app
