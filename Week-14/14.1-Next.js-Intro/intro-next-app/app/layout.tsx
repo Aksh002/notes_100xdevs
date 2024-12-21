@@ -28,6 +28,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+
+        <div className="p-4 border-b font-sans">
+          Blog Website Header TopBar Common to All Routes
+        </div>
         {children}
       </body>
     </html>
