@@ -17,6 +17,10 @@ enabled = true
 # [placement]
 # mode = "smart"
 
+[vars]
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiMTNjYTM3YzItOWRmMC00ZGJjLWIwNGQtMzk0Yzk3ZWE3YTc0IiwidGVuYW50X2lkIjoiMTM4NGJkZDc5YTU0NmU2ZGM2NmY0NzAwNjlhZGMwOTg3Y2I2OGY3Zjc3NjlmYTMwZmMzZDQzYzkzYWIwYzVjYSIsImludGVybmFsX3NlY3JldCI6IjFjYmU5OWE5LWVhZmMtNGZiNC1iMGQyLTBkYWFlYTkwYWY4MCJ9.g3REVlGp6pZUpTReMpkFN5kzKzmQHylb3rAnnDdwx-c"
+DIRECT_URL="postgres://postgres:mysecretpassword@106.219.148.200:5432/mydb"
+
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
 # Docs:
 # - https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables

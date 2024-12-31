@@ -71,4 +71,28 @@ async function getUser(email: string) {
     })
     console.log(res)
 }
-getUser("akshit@gmail.com")
+// getUser("akshit@gmail.com")
+
+//                                                                      Get After relation
+async function getTodos(userId: number) {
+    const res=await prisma.todos.findMany({
+        where:{
+            userId:userId
+        },
+        select:{                            // Using select, we can instruct to get back the USer info also , which is related to the called todo
+            id:true,
+            title:true,
+            user:{                          // Can use "true" if u wanna get all the details of the user
+                select:{
+                    id:true,
+                    firstName:true,
+                    email:true,
+                    password:false,
+                }
+            }
+        }
+    })
+    console.log(res)
+}
+
+getTodos(1);

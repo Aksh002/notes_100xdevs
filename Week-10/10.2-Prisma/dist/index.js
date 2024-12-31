@@ -66,4 +66,16 @@ function getUser(email) {
         console.log(res);
     });
 }
-getUser("akshit@gmail.com");
+// getUser("akshit@gmail.com")
+//                                                                      Get After relation
+function getTodos(userId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const res = yield prisma.todos.findMany({
+            where: {
+                userId: userId
+            }
+        });
+        console.log(res);
+    });
+}
+getTodos(1);

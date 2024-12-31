@@ -18,11 +18,12 @@ datasource db {
 
 // THis is how we define the schema of User Table , equivalent CREATE TABLE command
 model User{
-  id Int @id @default(autoincrement())
-  email String @unique
-  firstName String
-  lastName String?
-  password String
+  id          Int @id @default(autoincrement())
+  email       String @unique
+  firstName   String
+  lastName    String?
+  password    String
+  todos       Todos[]
 }
 //  @id = Primary key
 //  @default = set default value 
@@ -32,12 +33,14 @@ model User{
 
 
 model Todos{
-  id Int @id @default(autoincrement())
-  userId Int 
-  title String
-  description String? 
-  done Boolean @default(false)
+  id            Int @id @default(autoincrement())
+  title         String
+  description   String? 
+  done          Boolean @default(false)
 
   // Lets say later on, we add this new filed in our table, if we dont put the default for the existing ones alr, that field will voilate the integrity constraint of that schema 
-  time String @default("")
+  time          String @default("")
+
+  userId        Int        // This needs to be foreing key
+  user          User @relation(fields: [userId],references: [id])
 }
