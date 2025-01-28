@@ -16,7 +16,7 @@ export const filterSelector=selector({
         const todo=get(todoAtom)
         const filter=get(filterAtom)
         
-        //return todo.filter(todo => todo.title.includes(filter)); // Filtering todos based on partial title match      //The reason you're seeing all the todos when nothing is being searched is that in your current implementation, the filter condition (filter) is always checked with .includes(). When the filter is an empty string (""), the .includes() method matches all todos because every string contains an empty string.
+        return todo.filter(todo => todo.title.includes(filter)); // Filtering todos based on partial title match      //The reason you're seeing all the todos when nothing is being searched is that in your current implementation, the filter condition (filter) is always checked with .includes(). When the filter is an empty string (""), the .includes() method matches all todos because every string contains an empty string.
         
         // let s = [];
         // for (let i = 0; i < todo.length; i++) {

@@ -106,7 +106,7 @@ function UpdateComponent(){
   */
 //                                                          useRecoilStateLoadable()  ,   useRecoilValueLoadable()
 // Used to render a placeholder while the data is fetched from the backend
-// Its concept is it returns 2 parts, "state" & "contents".
+// Its concept is it returns 2 parts, "STATE" & "CONTENTS".
 // contents store the state variable of the atom,whatever there was in default
 // State consists of the state of the atom. 3 states are possible: "loading"    "hasValue"    "hasError"
 // smae fxnality is provided by :- suspense(much cleaner way)

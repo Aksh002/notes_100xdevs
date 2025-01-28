@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/GitHub/100xdevs_notes/notes_100xdevs/Week-2/2-Nodejs_runtime-HTTP/HTTP-SERVER-1",
-      "program": "d:/GitHub/100xdevs_notes/notes_100xdevs/Week-2/2-Nodejs_runtime-HTTP/HTTP-SERVER-1/build/Debug/outDebug",
+      "cwd": "c:/Users/akshi/C",
+      "program": "c:/Users/akshi/C/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
