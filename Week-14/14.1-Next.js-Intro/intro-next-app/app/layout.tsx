@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Inter } from "next/font/google"
+
+const inter = Inter({subsets:["latin"]})      // can use {inter.className} instead of {`${geistSans.variable} ${geistMono.variable} antialiased`} for className of the <body>
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,12 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-
-        <div className="p-4 border-b font-sans">
-          Blog Website Header TopBar Common to All Routes
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>    
+        <div className="p-4 border-b font-sans flex justify-center">
+          Blog Website Header TopBar Common to All Routes (from app/layout.tsx)
         </div>
         {children}
       </body>
