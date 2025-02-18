@@ -1,9 +1,13 @@
 "use client"
 import axios from "axios";
 import { ChangeEventHandler, useState } from "react";
+import { PrismaClient } from "@prisma/client"
+// const client = new PrismaClient()        // ImProper way of INstantiating Prisma client. Use Sigelton Prisma Client INstead
+import { prisma } from "@/db";
+
 
 export function SignupComp() {
-    const [username, setUsername] = useState("");
+    const [userName, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     return <div className="h-screen flex justify-center flex-col">
@@ -23,11 +27,18 @@ export function SignupComp() {
                             setPassword(e.target.value)
                         }} label="Password" type={"password"} placeholder="123456" />
                         <button onClick={async ()=>{
-                            const response = await axios.post("http://localhost:3000/api/user",{
-                                username,
-                                password
-                            })
-                            console.log(response.data)
+                            // const response = await axios.post("http://localhost:3000/api/user",{
+                            //     userName,
+                            //     password
+                            // })                       // Really  bad way to make a DB call, 
+                            const user = await prisma.user.create({
+                                data:{
+                                    userName:userName,
+                                    password:password
+                                }
+                            })                          // Hence,There is no need for route, you can just fetch,put data directly from server Components
+                            console.log(user)
+                            console.log(user.data)
                         }} type="button" className="mt-8 w-full text-white bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Sign in</button>
                     </div>
                 </div>

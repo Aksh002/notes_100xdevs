@@ -16,7 +16,7 @@ export default async function Home() {
                     Name: {response?.name}
                 </div>
                 
-                Email: {response?.email}
+                Email:{response?.email}
             </div>
         </div>
     </div>
