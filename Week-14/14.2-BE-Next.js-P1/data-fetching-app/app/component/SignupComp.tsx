@@ -4,6 +4,7 @@ import { ChangeEventHandler, useState } from "react";
 import { PrismaClient } from "@prisma/client"
 // const client = new PrismaClient()        // ImProper way of INstantiating Prisma client. Use Sigelton Prisma Client INstead
 import { prisma } from "@/db";
+import { SignupAction } from "../actions/user";
 
 
 export function SignupComp() {
@@ -26,20 +27,27 @@ export function SignupComp() {
                         <LabelledInput onChange={(e) => {
                             setPassword(e.target.value)
                         }} label="Password" type={"password"} placeholder="123456" />
-                        <button onClick={async ()=>{
-                            // const response = await axios.post("http://localhost:3000/api/user",{
-                            //     userName,
-                            //     password
-                            // })                       // Really  bad way to make a DB call, 
-                            const user = await prisma.user.create({
-                                data:{
-                                    userName:userName,
-                                    password:password
-                                }
-                            })                          // Hence,There is no need for route, you can just fetch,put data directly from server Components
-                            console.log(user)
-                            console.log(user.data)
-                        }} type="button" className="mt-8 w-full text-white bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Sign in</button>
+                        <button onClick={
+                        //     async ()=>{
+                        //     // const response = await axios.post("http://localhost:3000/api/user",{
+                        //     //     userName,
+                        //     //     password
+                        //     // })                       // Really  bad way to make a DB call, 
+                        //     const user = await prisma.user.create({
+                        //         data:{
+                        //             userName:userName,
+                        //             password:password
+                        //         }
+                        //     })                          // Hence,There is no need for route, you can just fetch,put data directly from server Components
+                        //     console.log(user)
+                        //     console.log(user.id)
+                        // }// Noneed to do this much also,just Call the Server Action fxn
+                        async ()=>{
+                            console.log("button click")
+                            const action=await SignupAction(userName,password)      // Return Type is determined if using Actions,not the same case for axios 
+                            console.log(action)
+                        }
+                        } type="button" className="mt-8 w-full text-white bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Sign in</button>
                     </div>
                 </div>
             </a>

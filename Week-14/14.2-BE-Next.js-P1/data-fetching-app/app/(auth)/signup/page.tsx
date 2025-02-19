@@ -1,3 +1,4 @@
+"use client"
 import { SignupComp } from "@/app/component/SignupComp";
 
 export default function Signup(){
