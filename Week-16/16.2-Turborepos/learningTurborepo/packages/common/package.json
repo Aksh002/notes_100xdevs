@@ -1,0 +1,19 @@
+{
+  "name": "@repo/common",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -b",
+    "dev" : "tsc -b"
+    // Need to build this common folder if using tsc compiler, bcs tsc doesnt covert commonjs form to ESM form(only esm form can export raw ts files), s owe cant export raw ts files, hence gotta build it and export js files
+  },
+  "exports":{
+    ".":"./dist/index.js"
+    //".":"./src/index.ts"                            // THis is used of we are not using tsc compiler, but esbuild, simce iesbuild can internally convert commonjs form to ESM form, so we can export raw ts files
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
