@@ -10,7 +10,7 @@
   },
   "exports":{
     ".":"./dist/index.js"
-    //".":"./src/index.ts"                            // THis is used of we are not using tsc compiler, but esbuild, simce iesbuild can internally convert commonjs form to ESM form, so we can export raw ts files
+    //".":"./src/index.ts"                            // THis is used of we are not using tsc compiler, but esbuild, simce esbuild can internally convert commonjs form to ESM form, so we can export raw ts files
   },
   "keywords": [],
   "author": "",
