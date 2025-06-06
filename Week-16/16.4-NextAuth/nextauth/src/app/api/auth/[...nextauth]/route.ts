@@ -51,43 +51,13 @@
 //                                      NextAuth
 
 
+import { NEXT_AUTH } from "@/lib/auth";
 import NextAuth from "next-auth";
-import CredentialsProvider  from "next-auth/providers/credentials";
-const handler = NextAuth({                  // 
-    providers:[                             // Providers:- All the services used are listed here 
-        CredentialsProvider({               // THis takes an object of :- Input fields || auth logic that trigers on clicking login
-            name:"Email",
-            credentials: {
-                username:{ label: 'Username' , type: 'text' , placeholder: 'Email' },
-                password:{ label: 'Password' , type: 'password' , placeholder: 'Password' }
-            },
-            async authorize(credentials:any){               // This  fxn is for db check 
-                console.log(credentials)
 
-                // Logic to authorize from db
-                // const user = await prisma.user.findOne({
-                //     where:{
-                //         email: credentials.username,
-                //         password: credentials.password
-                //     }
-                // })
+import { string } from "zod";
+//This handles the catch all routes and provide auth
 
-                // return {                                    // This return statement is key, if user is authorize, we return user data to construct token, else we return NULL 
-                //     id: user.id,
-                //     email: user.email
-                // }
-                // return null;                             // If user doesnt exist
-
-
-                return {
-                    id:"user1",
-                    name:"Akshit gangwar",
-                    email: credentials.username
-                }
-            }
-        })
-    ]
-})
+const handler = NextAuth(NEXT_AUTH)
 
 
 export const GET = handler;
