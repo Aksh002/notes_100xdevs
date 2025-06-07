@@ -1,3 +1,6 @@
 [submodule "Week-17/Paytm-project"]
 	path = Week-17/Paytm-project
 	url = https://github.com/Aksh002/Paytm-project-adv.git
+[submodule "Week-17/paytm-project"]
+	path = Week-17/paytm-project
+	url = https://github.com/Aksh002/Paytm-project-adv.git
