@@ -17,6 +17,12 @@ export const Appbar = ()=>{
             Signout
         </button>
 
+        <button onClick={
+            ()=>{ signIn("google") }                       // 
+        }>
+            Sign in with google 
+        </button>
+
         <div>
             Using useSession hook on client component:- {JSON.stringify(session)}
         </div>

@@ -1,5 +1,6 @@
 import CredentialsProvider  from "next-auth/providers/credentials";
-
+import GoogleProvider from "next-auth/providers/google";
+import GithubProvider from "next-auth/providers/github";
 // The argument object for NextAuth() fxn is stored here bcs it needs to passed in getServerSession() too 
 export const NEXT_AUTH = {                  // 
     providers:[                             // Providers:- All the services used are listed here 
@@ -33,15 +34,38 @@ export const NEXT_AUTH = {                  //
                     email: credentials.username
                 }
             }
-        })
+        }),
+        GoogleProvider({
+            clientId : process.env.GOOGLE_ID || "",
+            clientSecret : process.env.GOOGLE_CLIENT_SECRET || ""
+        }),
+        GithubProvider({
+            clientId : process.env.GITHUB_ID || "",
+            clientSecret : process.env.GITHUB_CLIENT_SECRET || ""
+        }),
     ],
     secret: process.env.NEXTAUTH_SECRET,
     callbacks:{
-        async signIn({user}){
-            console.log(`user object from callback:- ${user}`);
+        async signIn({user , account, profile}){
+
+            console.log(`user object from signIn callback:- ${JSON.stringify(user)}`);
+
+            // Ye dono undefined aa rhe hai, idk why
+            console.log(`account object from signIn callback:- ${JSON.stringify(account)}`);
+            console.log(`user object from signIn callback:- ${JSON.stringify(profile)}`);
+
             if (user.email=="hacker@gmail.com"){
                 return false                                        // Return FALSE to unauthorize the user 
             }
+
+            // This part of code, idk what it does,uncomment it and there it is a fckin error in ur face,  task for the future Akshit
+            // if (account.provider === "google") {
+            //     console.log("Google signin trigger");
+            //     console.log(account);
+            //     console.log(profile);
+            //     return profile.email_verified && profile.email.endsWith("@example.com")
+            // }
+
             else
                 return true
         },
@@ -62,5 +86,8 @@ export const NEXT_AUTH = {                  //
             console.log(`Session before session callback:- ${JSON.stringify(session)}`) // Additional feild id will be present in session -> user object
             return session;
         }
+    },
+    pages:{
+        signIn: "/signin"
     }
 }
