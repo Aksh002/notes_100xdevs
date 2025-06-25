@@ -16,5 +16,8 @@
     "mongoose": "^8.5.2",
     "nodemon": "^3.1.10",
     "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.4"
   }
 }
